@@ -3,7 +3,7 @@
 
 def get_title(soup):
     try:
-        title = soup.find('span', attrs={'id':'productTitle'})
+        title = soup.find('span', attrs={'id':'productTitle'}).string.strip()
     except AttributeError:
         title = ""
     return title
@@ -11,7 +11,7 @@ def get_title(soup):
 
 def get_price_mrp(soup):
     try:
-        mrp = soup.find('span', attrs={'id':'priceBlockStrikePriceString a-text-strike'}).text()
+        mrp = soup.find('span', attrs={'id':'priceBlockStrikePriceString a-text-strike'}).string.strip()
     except AttributeError:
         mrp = ''
     return mrp
@@ -19,8 +19,20 @@ def get_price_mrp(soup):
 
 def get_price_deal_price(soup):
     try:
-        deal_price = soup.find('span', attrs={'class':'priceBlockStrikePriceString a-text-strike'}).text()
+        deal_price = soup.find('span', attrs={'class':'priceBlockStrikePriceString a-text-strike'}).string.strip()
     except:
         deal_price = ""
     return deal_price
+
+
+def get_rating(soup):
+    try:
+        rating = soup.find('i', attrs={'class':'a-icon a-icon-star a-star-4-5'}).sting.strip()
+    except AttributeError:
+        try:
+            rating = soup.find('span', attrs={'class':'a-icon-alt'}).string.strip()
+        except:
+            rating = ''
+    return rating
+
 
