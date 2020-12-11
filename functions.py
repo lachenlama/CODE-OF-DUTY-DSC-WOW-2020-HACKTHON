@@ -43,7 +43,7 @@ def get_review(soup):
     try:
         review = soup.find('span', attrs={'id':'acrCustomerReviewText'}).string.strip()
     except AttributeError:
-        review = ''
+        review = 'None'
     return review
 
 
