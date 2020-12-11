@@ -20,8 +20,11 @@ def get_price_mrp(soup):
 def get_price_deal_price(soup):
     try:
         deal_price = soup.find('span', attrs={'id':'priceblock_dealprice'}).string.strip()
-    except:
-        deal_price = ""
+    except AttributeError
+        try:
+            deal_price = soup.find('span', attrs={'id':'priceblock_ourprice'}).string.strip()
+        except:
+            deal_price = ""
     return deal_price
 
 
