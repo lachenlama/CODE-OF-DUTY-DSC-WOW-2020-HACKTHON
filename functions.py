@@ -13,7 +13,7 @@ def get_price_mrp(soup):
     try:
         mrp = soup.find('span', attrs={'id':'priceBlockStrikePriceString a-text-strike'}).string.strip()
     except AttributeError:
-        mrp = ''
+        mrp = 'Below'
     return mrp
 
 
