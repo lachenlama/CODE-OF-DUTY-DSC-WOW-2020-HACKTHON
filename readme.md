@@ -5,7 +5,7 @@ Project provides info about the items you wish to search in Amazon without you h
     * Selenium
     * html5lib
     * bs4
-    *urllib3
+    * urllib3
 * A browser driver is required in order to run the code in your browser, e.g Chromedriver for Chrome.
 The browser driver should be installed in the path of the pc i.e C:\Windows
 
